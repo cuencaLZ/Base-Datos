@@ -58,9 +58,14 @@ public class Basedatos {
 
 		}
 		cerrarPeticion(peticion);
+		
 
 	}
-
+/**
+ * Lanza la peticion a la base de datos
+ * @param consulta consulta a lanzar
+ * @throws SQLException excepcion en caso de error de la consulta
+ */
 	public static void lanzarConsulta(String consulta) throws SQLException {
 		Statement peticion = abrirPeticion();
 
