@@ -27,6 +27,11 @@ public class Basedatos {
 		}
 
 	}
+	/**
+	 * inicia la conexion con Base de datos
+	 * @throws ClassNotFoundException excepcion
+	 * @throws SQLException excepcion
+	 */
 
 	public static void iniciarDB() throws ClassNotFoundException, SQLException {
 		// Esto carga el driver de mysql
@@ -35,6 +40,10 @@ public class Basedatos {
 		conn = DriverManager.getConnection("jdbc:mysql://localhost/mydb?" + "user=root&password=SQL852147852");
 
 	}
+	/**
+	 * Lanza la petición a la base de datos
+	 * @param nombretabla Tabla imprimir
+	 */
 
 	public static void imprimirTabla(String nombretabla) {
 		Statement peticion = abrirPeticion();
@@ -87,7 +96,10 @@ public class Basedatos {
 		cerrarPeticion(peticion);
 
 	}
-
+/**
+ * crea la peticion para ver una tabla
+ * @return devuelve la peticion abierta o el mensaje en caso de error
+ */
 	public static Statement abrirPeticion() {
 		try {
 			return conn.createStatement();
@@ -98,7 +110,10 @@ public class Basedatos {
 		}
 		return null;
 	}
-
+/**
+ * cierra la petición
+ * @param peticion a cerrar
+ */
 	public static void cerrarPeticion(Statement peticion) {
 		try {
 			peticion.close();
